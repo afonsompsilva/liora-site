@@ -1,0 +1,239 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body e fontes */
+body {
+  background-color: #181818;
+  color: #eee;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #202020;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.9rem;
+  letter-spacing: 0.15em;
+  color: #f0f0f0;
+  width: 100%;
+  text-align: center;
+}
+
+.tagline {
+  font-weight: 300;
+  font-size: 1rem;
+  color: #aaa;
+  width: 100%;
+  text-align: center;
+}
+
+/* NAV CATEGORIAS */
+nav.categories-bar {
+  position: fixed;
+  top: 80px; /* fica logo abaixo do header */
+  left: 0;
+  width: 100%;
+  background: #202020;
+  border-bottom: 1px solid #333;
+  padding: 0.7rem 2rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+nav.categories-bar a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+nav.categories-bar a:hover,
+nav.categories-bar a:focus {
+  background: #3d8efc;
+  color: #fff;
+  outline: none;
+}
+
+/* CONTEÚDO PRINCIPAL */
+main.content {
+  margin-top: 170px; /* 80px do header + 50px do nav */
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem 3rem;
+}
+
+/* SEÇÕES DE CATEGORIA */
+.category-section {
+  margin-bottom: 5rem;
+  scroll-margin-top: 130px;
+}
+
+.category-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 1.8rem;
+}
+
+.category-header img {
+  width: 180px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+  box-shadow: 0 0 20px rgba(61, 142, 252, 0.15);
+  cursor: pointer;
+}
+
+.category-header img:hover {
+  filter: brightness(1);
+}
+
+.category-header div h2 {
+  font-weight: 600;
+  font-size: 1.7rem;
+  color: #f0f0f0;
+}
+
+.category-header div p {
+  color: #bbb;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-top: 0.3rem;
+  letter-spacing: 0.04em;
+}
+
+/* GALERIA DE IMAGENS */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  filter: brightness(0.85);
+  cursor: pointer;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(61, 142, 252, 0.1);
+}
+
+.gallery img:hover {
+  filter: brightness(1);
+  transform: scale(1.04);
+}
+
+/* FOOTER */
+footer.footer {
+  background: #202020;
+  border-top: 1px solid #333;
+  padding: 2rem 2rem 3rem;
+  text-align: center;
+  color: #aaa;
+  font-weight: 300;
+  user-select: none;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.footer-bio {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: #bbb;
+}
+
+.footer-slogan {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #888;
+  font-weight: 200;
+}
+
+footer-slogan .social-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.4rem;
+  transition: color 0.3s ease;
+}
+
+.footer-slogan .social-link:hover,
+.footer-slogan .social-link:focus {
+  color: white;
+  outline: none;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsivo básico */
+@media (max-width: 720px) {
+  nav.categories-bar {
+    gap: 1rem;
+    padding: 0.7rem 1rem;
+  }
+  nav.categories-bar a {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+  .category-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .category-header img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+}

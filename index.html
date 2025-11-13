@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LIORA - Galaria de Fotos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="img/liorna.png" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">LIORA</div>
+    <div class="tagline">Afonso Martins Pimentel Silva</div>
+  </header>
+
+<nav class="categories-bar">
+    <a href="#sol" data-cat="sol">Sol</a>
+    <a href="#mar" data-cat="mar">Mar</a>
+    <a href="#natureza" data-cat="natureza">Natureza</a>
+</nav>
+
+  <main class="content">
+    <section id="sol" class="category-section">
+      <div class="category-header">
+        <img src="img/sol/sol.jpeg" alt="Sol" />
+        <div>
+          <h2>Sol</h2>
+        </div>
+      </div>
+      <div class="gallery">
+        <img src="imagem" alt="Sol 1" />
+        <img src="imagem" alt="Sol 2" />
+        <img src="imagem" alt="Sol 3" />
+      </div>
+    </section>
+
+    <section id="mar" class="category-section">
+      <div class="category-header">
+        <img src="img/mar/mar.jpeg" alt="Mar" />
+        <div>
+          <h2>Mar</h2>
+        </div>
+      </div>
+      <div class="gallery">
+        <img src="imagem" alt="Mar 1" />
+        <img src="imagem" alt="Mar 2" />
+        <img src="imagem" alt="Mar 3" />
+      </div>
+    </section>
+
+    <section id="natureza" class="category-section">
+      <div class="category-header">
+        <img src="img/natureza/natureza.jpeg" alt="Natureza" />
+        <div>
+          <h2>Natureza</h2>
+        </div>
+      </div>
+      <div class="gallery">
+        <img src="imagem" alt="Natureza 1" />
+        <img src="imagem" alt="Natureza 2" />
+        <img src="imagem" alt="Natureza 3" />
+      </div>
+    </section>
+
+  </main>
+
+<footer class="footer">
+  <p class="footer-bio">Capturando momentos, contando histórias.</p>
+  <p class="footer-slogan">
+    <p>Redes Sociais:</p>
+    <a href="https://instagram.com/afonsompsilva" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">Instagram</a> |
+    <a href="https://linktr.ee/afonsompsilva" target="_blank" rel="noopener noreferrer" aria-label="Linktree" class="social-link">Linktree</a> |
+    <a href="https://pinterest.com/afonsompsilvaa" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" class="social-link">Pinterest</a> |
+    <a href="https://tiktok.com/@afonsompsilva" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-link">TikTok</a>
+  </p>
+</footer>
+
+  <script>
+    // Scroll suave e rolar até categoria ao clicar no link
+    document.querySelectorAll('.categories-bar a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetID = link.getAttribute('href').slice(1);
+        const targetSection = document.getElementById(targetID);
+        if (targetSection) {
+          const offsetTop = targetSection.offsetTop - 130; // header + categorias fixas
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
