@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LIORA - Galaria de Fotos</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="img/liorna.png">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">LIORA</div>
+    <div class="tagline">Afonso Martins Pimentel Silva</div>
+
+  <nav class="categories-bar">
+    <a href="#sol" data-cat="sol">Sol</a>
+    <a href="#mar" data-cat="mar">Mar</a>
+    <a href="#natureza" data-cat="natureza">Natureza</a>
+  </nav>
+  </header>
+
+  <main class="content">
+    <section id="sol" class="category-section">
+      <div class="category-header">
+        <img src="img/sol/sol.jpeg" alt="Sol" />
+        <div>
+          <h2>Sol</h2>
+        </div>
+        <br><br>
+      </div>
+      <br>
+      <div class="gallery">
+        <img src="img/sol/sol1.jpeg" alt="Sol 1" />
+        <img src="img/sol/sol2.jpeg" alt="Sol 2" />
+        <img src="img/sol/sol3.jpeg" alt="Sol 3"/>
+        <img src="img/sol/sol4.jpeg" alt="Sol 4" class="hidden" />
+        <img src="img/sol/sol5.jpeg" alt="Sol 5" class="hidden" />
+
+      </div>
+      <br>
+      <button class="load-more">Ver Mais</button>
+    </section>
+
+    <section id="mar" class="category-section">
+      <div class="category-header">
+        <img src="img/mar/mar.jpeg" alt="Mar" />
+        <div>
+          <h2>Mar</h2>
+        </div>
+      </div>
+      <br>
+      <div class="gallery">
+        <img src="img/mar/mar1.jpeg" alt="Mar 1" />
+        <img src="img/mar/mar2.jpeg" alt="Mar 2" />
+        <img src="img/mar/mar3.jpeg" alt="Mar 3" />
+        <img src="img/mar/mar4.jpeg" alt="Mar 4" class="hidden"/>
+        <img src="img/mar/mar5.jpeg" alt="Mar 4" class="hidden"/>
+
+      </div>
+      <br>
+      <button class="load-more">Ver Mais</button>
+    </section>
+
+    <section id="natureza" class="category-section">
+      <div class="category-header">
+        <img src="img/natureza/natureza.jpeg" alt="Natureza" />
+        <div>
+          <h2>Natureza</h2>
+        </div>
+      </div>
+      <br>
+      <div class="gallery">
+        <img src="img/natureza/natureza1.jpeg" alt="Natureza 1" />
+        <img src="img/natureza/natureza2.jpeg" alt="Natureza 2" />
+        <img src="img/natureza/natureza3.jpeg" alt="Natureza 3" />
+        <img src="img/natureza/natureza5.jpeg" alt="Natureza 5" />
+        <img src="img/natureza/natureza6.jpeg" alt="Natureza 6" />
+        <img src="img/natureza/natureza7.jpeg" alt="Natureza 7" class="hidden" />
+        <img src="img/natureza/natureza8.jpeg" alt="Natureza 8" class="hidden" />
+
+
+      </div>
+      <br>
+      <button class="load-more">Ver Mais</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-bio">Capturando momentos, contando histórias.</p>
+    <p class="footer-slogan">
+      <span>Redes Sociais:</span>
+      <br>
+      <a href="https://instagram.com/afonsompsilva" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">Instagram</a> |
+      <a href="https://linktr.ee/afonsompsilva" target="_blank" rel="noopener noreferrer" aria-label="Linktree" class="social-link">Linktree</a> |
+      <a href="https://pinterest.com/afonsompsilvaa" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" class="social-link">Pinterest</a> |
+      <a href="https://tiktok.com/@afonsompsilva" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-link">TikTok</a>
+    </p>
+  </footer>
+
+  <div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Fechar imagem">×</button>
+  <img src="" alt="Imagem Ampliada" id="lightbox-img" />
+</div>
+
+  <script>
+  document.querySelectorAll('.category-section').forEach(section => {
+    const btn = section.querySelector('.load-more');
+    const imgs = Array.from(section.querySelectorAll('.gallery img'));
+    const initialVisible = 3; 
+
+    imgs.forEach((img, i) => {
+      img.style.display = i < initialVisible ? '' : 'none';
+    });
+
+    let visibleCount = initialVisible;
+
+    btn.addEventListener('click', () => {
+      if (btn.textContent === 'Ver Mais') {
+
+        visibleCount = imgs.length;
+        btn.textContent = 'Ver Menos';
+
+        imgs.forEach((img, i) => {
+          img.style.display = i < visibleCount ? '' : 'none';
+        });
+      } else {
+
+        visibleCount = initialVisible;
+        imgs.forEach((img, i) => {
+          img.style.display = i < visibleCount ? '' : 'none';
+        });
+        btn.textContent = 'Ver Mais';
+      }
+    });
+  });
+  const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+
+document.querySelectorAll('.gallery img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('active');
+  });
+});
+
+lightboxClose.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('active');
+  }
+});
+
+</script>
+
+</body>
+</html>
